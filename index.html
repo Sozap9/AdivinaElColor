@@ -4,8 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Adivina el Color </title>
+    <link rel="stylesheet" href="./css/adivinaColor.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+        </style>
 </head>
 <body>
-    <h1>esto es una prueba</h1>
+
+   
+
+
+
+    <div id="contenedor">
+        <section id="titulo">
+            <h1>Adivina El Color</h1>
+        </section>
+
+        <section id="rgb">
+            <p id="rgbColor">Código RGB</p>
+        </section>
+
+        <section id="aciertos">
+            <p>Aciertos: <span id="contadorAciertos">0</span></p>
+        </section>
+
+        <section id="fallos">
+            <p>Fallos: <span id="contadorFallos">0</span></p>
+        </section>
+
+        <section id="colores">
+            <div class="color" id="color1"></div>
+            <div class="color" id="color2"></div>
+            <div class="color" id="color3"></div>
+            <div class="color" id="color4"></div>
+            <div class="color" id="color5"></div>
+        </section>
+
+        <section id="mensaje">
+            <p id="mensajeTexto">¡Felicidades!</p>
+        </section>
+
+        <section id="nivel">
+            <p>Nivel: <span id="nivelActual">1</span></p>
+        </section>
+
+        <select id="desplegable">
+
+            <option value="option1">Fácil</option>
+            <option value="option2">Medio</option>
+            <option value="option3">Difícil</option>
+        </select>
+      
+    </div>
+
+
+
+
+
+
+    <script src="./js/adivinaColor.js"></script>
 </body>
 </html>
+
+
+
+
