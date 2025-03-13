@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let juegoActivo = true;
   let dificultad = "Color";
 
+  // Crear elementos de audio
+  const aciertoSound = new Audio("./sounds/correct-choice-43861.mp3");
+  const errorSound = new Audio("./sounds/wronganswer-37702.mp3");
+
   // Actualizar la dificultad
   desplegable.addEventListener("change", function () {
     const opciones = {
@@ -88,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (colorSeleccionado === colorCorrecto) {
       aciertosCount++;
       aciertos.innerText = `Aciertos: ${aciertosCount}`;
+      aciertoSound.play(); // Reproducir sonido de acierto
       if (dificultad !== "Infinito" && aciertosCount === 3) {
         mensaje.innerText = "¡Ganaste!";
         mostrarMensajeYReiniciar();
@@ -97,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       fallosCount++;
       fallos.innerText = `Fallos: ${fallosCount}`;
+      errorSound.play(); // Reproducir sonido de error
       if (fallosCount === 3) {
         mensaje.innerText = "¡Fallaste!";
         mostrarMensajeYReiniciar();
