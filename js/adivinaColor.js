@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Crear elementos de audio
   const aciertoSound = new Audio("./sounds/correct-choice-43861.mp3");
   const errorSound = new Audio("./sounds/wronganswer-37702.mp3");
+  const aplausos = new Audio("./sounds/cheering.mp3");
+  const abucheo = new Audio("./sounds/boo.mp3");
 
   // Actualizar la dificultad
   desplegable.addEventListener("change", function () {
@@ -94,8 +96,16 @@ document.addEventListener("DOMContentLoaded", function () {
       aciertos.innerText = `Aciertos: ${aciertosCount}`;
       aciertoSound.play(); // Reproducir sonido de acierto
       if (dificultad !== "Infinito" && aciertosCount === 3) {
-        mensaje.innerText = "¡Ganaste!";
-        mostrarMensajeYReiniciar();
+        aplausos.play();
+        document.getElementById("body").style.display = "none";
+        document.body.insertAdjacentHTML(
+          "beforeend",
+          `<section class='mensajeFinal'>
+            <p style="background-color: white color= black">!Enhorabuena lo logaste! Eres muy bueno adivinando colores 👌</p>
+            <button id="botonInicio" >🎨Volver al juego🎨</button>
+            </section>
+            `
+        );
       } else {
         generarColores();
       }
@@ -104,24 +114,20 @@ document.addEventListener("DOMContentLoaded", function () {
       fallos.innerText = `Fallos: ${fallosCount}`;
       errorSound.play(); // Reproducir sonido de error
       if (fallosCount === 3) {
-        mensaje.innerText = "¡Fallaste!";
-        mostrarMensajeYReiniciar();
+        abucheo.play();
+        document.getElementById("body").style.display = "none";
+        document.body.insertAdjacentHTML(
+          "beforeend",
+          `<section class='mensajeFinal'>
+               <p>OOH, no lo conseguiste, debes seguir intentandolo 😭</p>
+               <button id="botonInicio">🎨Volver al juego🎨</button>
+               </section>
+               `
+        );
       } else {
         generarColores();
       }
     }
-  }
-
-  function mostrarMensajeYReiniciar() {
-    setTimeout(() => {
-      aciertosCount = 0;
-      fallosCount = 0;
-      aciertos.innerText = `Aciertos: ${aciertosCount}`;
-      fallos.innerText = `Fallos: ${fallosCount}`;
-      mensaje.innerText = "";
-      generarColores();
-      juegoActivo = true;
-    }, 2000);
   }
 
   generarColores();
@@ -149,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
 function mostrarModal() {
   document.getElementById("modal").style.display = "flex";
 }
@@ -159,9 +164,12 @@ function cerrarModal() {
 }
 
 function cambiarTab(event, tabName) {
-
-  document.querySelectorAll(".tab-content").forEach(tab => tab.style.display = "none");
-  document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
+  document
+    .querySelectorAll(".tab-content")
+    .forEach((tab) => (tab.style.display = "none"));
+  document
+    .querySelectorAll(".tab-button")
+    .forEach((btn) => btn.classList.remove("active"));
 
   document.getElementById(tabName).style.display = "block";
   event.currentTarget.classList.add("active");
