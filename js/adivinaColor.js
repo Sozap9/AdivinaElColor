@@ -126,3 +126,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   generarColores();
 });
+
+// Botón Reglas Juego
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("btnInfo");
+  const modal = document.getElementById("infoJuego");
+  const cerrarBtn = document.getElementById("cerrarBtn");
+
+  btn.addEventListener("click", function () {
+    modal.style.display = "flex";
+  });
+
+  cerrarBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+
+function mostrarModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function cerrarModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function cambiarTab(event, tabName) {
+
+  document.querySelectorAll(".tab-content").forEach(tab => tab.style.display = "none");
+  document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
+
+  document.getElementById(tabName).style.display = "block";
+  event.currentTarget.classList.add("active");
+}

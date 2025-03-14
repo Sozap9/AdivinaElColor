@@ -58,6 +58,44 @@
       
     </div>
 
+    <button id="btnInfo"> ℹ️ </button>
+    <div id="infoJuego" class="modal">
+        <div class="modal-content">
+            <span id="cerrarBtn" class="cerrar">&times;</span>
+
+            <h2>Reglas del juego</h2>
+
+            <div class="tabs">
+                <button class="tab-button active" onclick="cambiarTab(event, 'color')">Color</button>
+                <button class="tab-button" onclick="cambiarTab(event, 'tonalidades')">Tonalidades</button>
+                <button class="tab-button" onclick="cambiarTab(event, 'dificil')">Difícil</button>
+                <button class="tab-button" onclick="cambiarTab(event, 'infinito')">Infinito</button>
+            </div>
+
+            <div id="color" class="tab-content active">
+                <p>1. De los 5 círculos debes elegir el que coincide con el color del rectángulo de arriba</p>
+                <p>2. A los 3 fallos ¡¡PIERDES!! </p>
+                <p>3 A los 3 aciertos ¡¡GANAS!!</p>
+            </div>
+
+            <div id="tonalidades" class="tab-content">
+                <p>1. Debes elegir el tono que coincide con el rectángulo de arriba.</p>
+                <p>2. A los 3 fallos ¡¡PIERDES!!</p>
+                <p>3. A los 3 aciertos ¡¡GANAS!!</p>
+            </div>
+
+            <div id="dificil" class="tab-content">
+                <p>1. Con el código RGB averigua el color correcto.</p>
+                <p>2. A los 3 fallos ¡¡PIERDES!!</p>
+                <p>3. A los 3 aciertos ¡¡GANAS!! </p>
+            </div>
+
+            <div id="infinito" class="tab-content">
+                <p>1. Juega sin límite de aciertos.</p>
+                <p>2. A los 3 fallos ¡¡PIERDES!!</p>
+            </div>
+    </div>
+
 
 
 
