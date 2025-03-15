@@ -96,16 +96,24 @@ document.addEventListener("DOMContentLoaded", function () {
       aciertos.innerText = `Aciertos: ${aciertosCount}`;
       aciertoSound.play(); // Reproducir sonido de acierto
       if (dificultad !== "Infinito" && aciertosCount === 3) {
-        aplausos.play();
+       
         document.getElementById("body").style.display = "none";
         document.body.insertAdjacentHTML(
           "beforeend",
           `<section class='mensajeFinal'>
-            <p style="background-color: white color= black">!Enhorabuena lo logaste! Eres muy bueno adivinando colores 👌</p>
+            <p>!Enhorabuena lo logaste! Eres muy bueno adivinando colores 👌</p>
             <button id="botonInicio" >🎨Volver al juego🎨</button>
             </section>
             `
         );
+        document.getElementById("botonInicio").addEventListener("click",  () => {
+          window.location.href = "/";
+        });
+        const boton = document.getElementById("botonInicio");
+        boton.style.padding = "8px 15px";
+        boton.style.fontSize = "14px";
+        aplausos.play();
+        
       } else {
         generarColores();
       }
@@ -114,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fallos.innerText = `Fallos: ${fallosCount}`;
       errorSound.play(); // Reproducir sonido de error
       if (fallosCount === 3) {
-        abucheo.play();
+        
         document.getElementById("body").style.display = "none";
         document.body.insertAdjacentHTML(
           "beforeend",
@@ -124,6 +132,15 @@ document.addEventListener("DOMContentLoaded", function () {
                </section>
                `
         );
+        document
+          .getElementById("botonInicio")
+          .addEventListener("click", () => {
+            window.location.href = "/";
+          });
+        const boton = document.getElementById("botonInicio");
+        boton.style.padding = "8px 15px";
+        boton.style.fontSize = "14px";
+        abucheo.play();
       } else {
         generarColores();
       }
