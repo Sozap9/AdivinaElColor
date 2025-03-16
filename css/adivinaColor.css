@@ -142,6 +142,7 @@ h1 {
   font-size: 1rem;
   border-radius: 8px;
 }
+
 #desplegable::after {
   content: "";
   background: url(https://depositphotos.com/vector/backhand-pointer-icon-159629974.html)
@@ -171,10 +172,12 @@ h1 {
   width: 100%;
 }
 
-#btnInfo{
+.btnInfo{
   position: fixed;
   bottom: 250px;
   right: 530px;
+  cursor : pointer;
+  font-size: 1rem;
 }
 
 #infoJuego {
@@ -327,6 +330,7 @@ h1 {
     grid-column: span 1;
     grid-column-start: auto;
     font-size: 0.8em;
+    text-align: center;
   }
   
   #colores {
@@ -336,7 +340,7 @@ h1 {
   }
   
   .color {
-    width: 60px;
+    width: 50px;
     height: 60px;
     border-width: 2px;
   }
@@ -344,7 +348,6 @@ h1 {
   #mensaje {
     grid-column: span 2;
     grid-column-start: auto;
-    margin-top: 10px;
   }
   
   #nivel {
@@ -357,7 +360,7 @@ h1 {
     grid-column-start: auto;
     grid-row-start: auto;
     width: 80%;
-    margin: 0 auto;
+    margin-left: 70%;
   }
 }
 

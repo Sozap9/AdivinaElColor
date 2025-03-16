@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document
           .getElementById("botonInicio")
           .addEventListener("click", () => {
-            window.location.href = "/";
+            window.location.href = "index.html";
           });
         const boton = document.getElementById("botonInicio");
         boton.style.padding = "8px 15px";
