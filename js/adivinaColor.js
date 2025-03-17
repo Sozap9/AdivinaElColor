@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.insertAdjacentHTML(
           "beforeend",
           `<section class='mensajeFinal'>
-            <p>!Enhorabuena lo logaste! Eres muy bueno adivinando colores 👌</p>
+            <p>!Enhorabuena lo lograste! Eres muy bueno adivinando colores 👌</p>
             <button id="botonInicio" >🎨Volver al juego🎨</button>
             </section>
             `
