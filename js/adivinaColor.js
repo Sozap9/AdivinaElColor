@@ -96,24 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       aciertos.innerText = `Aciertos: ${aciertosCount}`;
       aciertoSound.play(); // Reproducir sonido de acierto
       if (dificultad !== "Infinito" && aciertosCount === 3) {
-       
-        document.getElementById("body").style.display = "none";
-        document.body.insertAdjacentHTML(
-          "beforeend",
-          `<section class='mensajeFinal'>
-            <p>!Enhorabuena lo lograste! Eres muy bueno adivinando colores 👌</p>
-            <button id="botonInicio" >🎨Volver al juego🎨</button>
-            </section>
-            `
-        );
-        document.getElementById("botonInicio").addEventListener("click",  () => {
-          window.location.href = "/";
-        });
-        const boton = document.getElementById("botonInicio");
-        boton.style.padding = "8px 15px";
-        boton.style.fontSize = "14px";
-        aplausos.play();
-        
+        mostrarMensajeFinal("¡Enhorabuena lo lograste! Eres muy bueno adivinando colores 👌", aplausos);
       } else {
         generarColores();
       }
@@ -122,29 +105,39 @@ document.addEventListener("DOMContentLoaded", function () {
       fallos.innerText = `Fallos: ${fallosCount}`;
       errorSound.play(); // Reproducir sonido de error
       if (fallosCount === 3) {
-        
-        document.getElementById("body").style.display = "none";
-        document.body.insertAdjacentHTML(
-          "beforeend",
-          `<section class='mensajeFinal'>
-               <p>OOH, no lo conseguiste, debes seguir intentandolo 😭</p>
-               <button id="botonInicio">🎨Volver al juego🎨</button>
-               </section>
-               `
-        );
-        document
-          .getElementById("botonInicio")
-          .addEventListener("click", () => {
-            window.location.href = "index.html";
-          });
-        const boton = document.getElementById("botonInicio");
-        boton.style.padding = "8px 15px";
-        boton.style.fontSize = "14px";
-        abucheo.play();
+        mostrarMensajeFinal("OOH, no lo conseguiste, debes seguir intentandolo 😭", abucheo);
       } else {
         generarColores();
       }
     }
+  }
+
+  function mostrarMensajeFinal(mensajeTexto, sonido) {
+    document.getElementById("body").style.display = "none";
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      `<section class='mensajeFinal'>
+        <p>${mensajeTexto}</p>
+        <button id="botonInicio">🎨Volver al juego🎨</button>
+      </section>`
+    );
+    document.getElementById("botonInicio").addEventListener("click", reiniciarJuego);
+    const boton = document.getElementById("botonInicio");
+    boton.style.padding = "8px 15px";
+    boton.style.fontSize = "14px";
+    sonido.play();
+  }
+
+  function reiniciarJuego() {
+    document.querySelector('.mensajeFinal').remove();
+    document.getElementById("body").style.display = "block";
+    aciertosCount = 0;
+    fallosCount = 0;
+    aciertos.innerText = `Aciertos: ${aciertosCount}`;
+    fallos.innerText = `Fallos: ${fallosCount}`;
+    mensaje.innerText = "";
+    generarColores();
+    juegoActivo = true;
   }
 
   generarColores();
