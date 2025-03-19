@@ -20,6 +20,6 @@ El proyecto "Adivivna el Color", es un proyecto del Bootcamp de Hack A Boss, est
 
 ## Autores 
 * Carmen Viedma Herrera
-* Daniel Barreiro
+* Daniel Barreiro Martínez
 * Jose Manuel Ibáñez Altabella
 * Diego Pazos Pérez
