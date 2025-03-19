@@ -45,7 +45,7 @@
         </section>
 
         <section id="nivel">
-            <p>Número de intentos: <span id="nivelActual">1</span></p>
+            <p> Modo de juego: <span id="nivelActual"> </span></p>
         </section>
 
         <select id="desplegable">
@@ -55,45 +55,57 @@
             <option value="option3">Difícil</option>
             <option value="option4">Infinito</option>
         </select>
-      
-    </div>
 
-    <button id="btnInfo"> Instruccionesℹ️ </button>
-    <div id="infoJuego" class="modal">
-        <div class="modal-content">
-            <span id="cerrarBtn" class="cerrar">&times;</span>
+        <div id="modalModo" class="modal">
+            <div class="modal-content">
+                <h2>Selecciona el modo de juego</h2>
+                <select id="modoJuego">
+                    <option value="option1">Color</option>
+                    <option value="option2">Tonalidades</option>
+                    <option value="option3">Difícil</option>
+                    <option value="option4">Infinito</option>
+                </select>
+                <button id="btnInicio">Iniciar Juego</button>
+            </div>
+        </div>
+
+    </div>
+        <button id="btnInfo"> Instruccionesℹ️ </button>
+        <div id="infoJuego" class="modal">
+            <div class="modal-content">
+                <span id="cerrarBtn" class="cerrar">&times;</span>
 
             <h2>Reglas del juego</h2>
 
-            <div class="tabs">
-                <button class="tab-button active" onclick="cambiarTab(event, 'color')">Color</button>
-                <button class="tab-button" onclick="cambiarTab(event, 'tonalidades')">Tonalidades</button>
-                <button class="tab-button" onclick="cambiarTab(event, 'dificil')">Difícil</button>
-                <button class="tab-button" onclick="cambiarTab(event, 'infinito')">Infinito</button>
-            </div>
+        <div class="tabs">
+            <button class="tab-button active" onclick="cambiarTab(event, 'color')">Color</button>
+            <button class="tab-button" onclick="cambiarTab(event, 'tonalidades')">Tonalidades</button>
+            <button class="tab-button" onclick="cambiarTab(event, 'dificil')">Difícil</button>
+            <button class="tab-button" onclick="cambiarTab(event, 'infinito')">Infinito</button>
+        </div>
 
-            <div id="color" class="tab-content active">
+        <div id="color" class="tab-content active">
                 <p>1. De los 5 círculos debes elegir el que coincide con el color del rectángulo de arriba</p>
                 <p>2. A los 3 fallos ¡¡PIERDES!! </p>
                 <p>3 A los 3 aciertos ¡¡GANAS!!</p>
-            </div>
+        </div>
 
-            <div id="tonalidades" class="tab-content">
+        <div id="tonalidades" class="tab-content">
                 <p>1. Debes elegir el tono que coincide con el rectángulo de arriba.</p>
                 <p>2. A los 3 fallos ¡¡PIERDES!!</p>
                 <p>3. A los 3 aciertos ¡¡GANAS!!</p>
-            </div>
+        </div>
 
-            <div id="dificil" class="tab-content">
+        <div id="dificil" class="tab-content">
                 <p>1. Con el código RGB averigua el color correcto.</p>
                 <p>2. A los 3 fallos ¡¡PIERDES!!</p>
                 <p>3. A los 3 aciertos ¡¡GANAS!! </p>
-            </div>
+        </div>
 
-            <div id="infinito" class="tab-content">
+        <div id="infinito" class="tab-content">
                 <p>1. Juega sin límite de aciertos.</p>
                 <p>2. A los 3 fallos ¡¡PIERDES!!</p>
-            </div>
+        </div>
     </div>
 </div>
 

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const aplausos = new Audio("./sounds/cheering.mp3");
   const abucheo = new Audio("./sounds/boo.mp3");
 
-  // Actualizar la dificultad
+  // Actualizar la dificultad y reiniciar contadores
   desplegable.addEventListener("change", function () {
     const opciones = {
       option1: "Color",
@@ -28,6 +28,14 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     dificultad = opciones[desplegable.value] || "Color";
     nivelText.innerText = `Nivel: ${dificultad}`;
+
+    // Reiniciar contadores de aciertos y fallos
+    aciertosCount = 0;
+    fallosCount = 0;
+    aciertos.innerText = `Aciertos: ${aciertosCount}`;
+    fallos.innerText = `Fallos: ${fallosCount}`;
+
+    // Generar nuevos colores para el nuevo modo
     generarColores();
   });
 
@@ -143,8 +151,61 @@ document.addEventListener("DOMContentLoaded", function () {
   generarColores();
 });
 
-// Botón Reglas Juego
+document.addEventListener("DOMContentLoaded", function () {
+    const btnInfo = document.getElementById("btnInfo");
+    const modalInfo = document.getElementById("infoJuego");
+    const cerrarBtn = document.getElementById("cerrarBtn");
 
+    btnInfo.addEventListener("click", function () {
+        modalInfo.style.display = "flex";
+    });
+
+    cerrarBtn.addEventListener("click", function () {
+        modalInfo.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === modalInfo) {
+            modalInfo.style.display = "none";
+        }
+    });
+});
+
+// Mostrar el modal de selección de modo al inicio
+window.onload = function () {
+    const modalModo = document.getElementById('modalModo');
+    const modalInfo = document.getElementById('infoJuego'); 
+    const btnInicio = document.getElementById('btnInicio');
+
+    modalInfo.style.display = 'none';
+
+    modalModo.style.display = 'block';
+
+    btnInicio.addEventListener('click', function () {
+        const modoSeleccionado = document.getElementById('modoJuego').value;
+
+        modalModo.style.display = 'none';
+
+        console.log('Modo seleccionado:', modoSeleccionado);
+        inicializarModo(modoSeleccionado);
+    });
+};
+
+// Función para inicializar el juego según el modo seleccionado
+function inicializarModo(modo) {
+    const opciones = {
+        option1: "Color",
+        option2: "Tonalidades",
+        option3: "Difícil",
+        option4: "Infinito",
+    };
+
+    dificultad = opciones[modo] || "Color";
+    document.getElementById("nivelActual").innerText = dificultad;
+    generarColores();
+}
+
+// Modal Reglas Juego
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("btnInfo");
   const modal = document.getElementById("infoJuego");
@@ -166,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function mostrarModal() {
-  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modal").style.display = "none";
 }
 
 function cerrarModal() {
